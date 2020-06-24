@@ -25,6 +25,10 @@ module CloudPayments
       Orders.new(self)
     end
 
+    def apple_pay
+      ApplePay.new(self)
+    end
+
     def ping
       !!(perform_request('/test').body || {})[:success]
     rescue ::Faraday::ConnectionFailed, ::Faraday::TimeoutError, CloudPayments::Client::ServerError => e
