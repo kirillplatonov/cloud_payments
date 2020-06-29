@@ -6,6 +6,7 @@ require 'cloud_payments/namespaces/payments'
 require 'cloud_payments/namespaces/subscriptions'
 require 'cloud_payments/namespaces/orders'
 require 'cloud_payments/namespaces/kassa'
+require 'cloud_payments/namespaces/apple_pay'
 
 module CloudPayments
   module Namespaces
