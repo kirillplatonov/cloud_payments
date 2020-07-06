@@ -145,6 +145,27 @@ CloudPayments.client.kassa.receipt({
 })
 ```
 
+## Apple Pay Start Session
+[Start Apple Pay session](https://developers.cloudpayments.ru/#zapusk-sessii-dlya-oplaty-cherez-apple-pay)
+```ruby
+CloudPayments.client.apple_pay.start_session({validation_url: "https://apple-pay-gateway-pr-pod2.apple.com/paymentservices/startSession"})
+# => {
+#   :message => nil,
+#     :model => {
+#                    :display_name => "example.com,
+#                     :domain_name => "example.com",
+#                 :epoch_timestamp => 1594072416294,
+#                      :expires_at => 1594076016294,
+#             :merchant_identifier => "5DCCE3A52CFC3FAF9F4EA8421472E47BC503E03051B04D2ED67A3834386B52F2",
+#     :merchant_session_identifier => "SSHDA3C703BD69B45EDB8934E6BFCC159B2B83AAFC02DB625F1F1E3997CCC2FE2CFD11F636558",
+#                           :nonce => "51c77142",
+#                       :signature => "30800.....0"
+#   },
+#   :success => true
+# }
+
+```
+
 ## Webhooks
 
 ```ruby
