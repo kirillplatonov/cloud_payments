@@ -15,7 +15,7 @@ describe CloudPayments::Namespaces::ApplePay do
 
     context do
       before{ attributes.delete(:validation_url) }
-      specify{ expect{subject.receipt(attributes)}.to raise_error(described_class::ValidationUrlMissing) }
+      specify{ expect{subject.start_session(attributes)}.to raise_error(described_class::ValidationUrlMissing) }
     end
   end
 end
