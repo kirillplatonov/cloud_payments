@@ -73,7 +73,7 @@ module CloudPayments
         def fixture
           @fixture ||= begin
             file = fixture_path.join("#{name}.yml").to_s
-            YAML.load(File.read(file)) if File.exists?(file)
+            YAML.load(File.read(file)) if File.exist?(file)
           end
         end
 
