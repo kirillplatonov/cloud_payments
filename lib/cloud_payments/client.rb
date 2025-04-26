@@ -45,7 +45,15 @@ module CloudPayments
 
     def build_connection
       Faraday::Connection.new(config.host, config.connection_options) do |conn|
-        conn.request :basic_auth, config.public_key, config.secret_key
+
+        # https://github.com/lostisland/faraday/blob/main/UPGRADING.md#authentication-helper-methods-in-connection-have-been-removed
+        # https://lostisland.github.io/faraday/#/middleware/included/authentication?id=faraday-1x-usage
+        if Faraday::VERSION.start_with?("1.")
+          conn.request :basic_auth, config.public_key, config.secret_key
+        else
+          conn.request :authorization, :basic, config.public_key, config.secret_key
+        end
+
         config.connection_block.call(conn) if config.connection_block
       end
     end
